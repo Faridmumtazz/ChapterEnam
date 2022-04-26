@@ -13,7 +13,7 @@ class latihanduaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_latihandua)
 
-        thread()
+
         handlerThread()
     }
 
@@ -58,31 +58,26 @@ class latihanduaActivity : AppCompatActivity() {
 
         Thread(Runnable {
             btn_submit.setOnClickListener {
-                val result = Message.obtain()
                 val bb = et_bb.text.toString()
                 val tb = et_tb.text.toString()
                 val tinggi = tb.toInt() / 100
                 val hasil = bb.toInt() / (tinggi*tinggi)
 
-                if (hasil < 18.5){
-                    tv_ket.post(Runnable {
-                        tv_ket.text = "Kurus"
-                    })
+                val keterangan = if (hasil < 18.5){
+                    "Kurus"
                 }else if (hasil >= 18.5 && hasil <= 24.5) {
-                    tv_ket.post(Runnable {
-                        tv_ket.text = "Normal"
-                    })
+                     "Normal"
+
                 }else if (hasil >= 25 && hasil <= 29.9) {
-                    tv_ket.post(Runnable {
-                        tv_ket.text = "Overweight"
-                    })
+                    "Overweight"
+
                 }else{
-                    tv_ket.post(Runnable {
-                        tv_ket.text = "Obesitas"
-                    })
+                     "Obesitas"
                 }
 
-                result.obj = hasil
+
+                val result = Message.obtain()
+                result.obj = keterangan
                 result.target = getHandler
                 result.sendToTarget()
 
