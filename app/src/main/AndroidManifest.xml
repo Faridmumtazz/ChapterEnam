@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ChapterEnam">
         <activity
-            android:name=".pertemuansatu.latihanduaActivity"
+            android:name=".pertemuantiga.MainReceiverActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,13 +19,27 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".pertemuansatu.latihansatu"
-            android:exported="true"></activity>
-        <activity
-            android:name=".MainActivity"
+            android:name=".pertemuantiga.MainServiceActivity"
             android:exported="true">
 
         </activity>
+        <activity
+            android:name=".pertemuandua.CaroutineActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".pertemuandua.AsyncTaskActivity"
+            android:exported="true" />
+        <activity
+            android:name=".pertemuansatu.latihanduaActivity"
+            android:exported="true" />
+        <activity
+            android:name=".pertemuansatu.latihansatu"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+
+        <service android:name=".pertemuantiga.service.ServicePlayer" />
     </application>
 
 </manifest>
